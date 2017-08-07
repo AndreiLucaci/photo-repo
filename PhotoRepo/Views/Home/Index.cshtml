@@ -1,7 +1,15 @@
-﻿@model object
+﻿@model PhotoRepo.Models.FoldersConfigurationModel
 
 @{
 	ViewBag.Title = "Home";
 	Layout = "_Layout";
 }
 
+<h1>Neemia</h1>
+@foreach (var item in Model.Neemia.Items)
+{
+	<div>
+		<span>@item.Name</span>
+		<span>@item.Path</span>
+	</div>
+}

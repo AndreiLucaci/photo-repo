@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PhotoRepo.Models;
 
 namespace PhotoRepo
 {
@@ -25,6 +26,9 @@ namespace PhotoRepo
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddMvc();
+			services.AddOptions();
+			services.Configure<FoldersConfigurationModel>(Configuration.GetSection("Folders"));
+			services.Configure<GoogleConfigurationModel>(Configuration.GetSection("Google"));
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
